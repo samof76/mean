@@ -1,0 +1,47 @@
+{% extends '../layouts/default.html' %}
+
+{% block content %}
+  <div class="ui grid">
+    <div class="eight wide column">
+      <div class="ui fluid four item menu">
+        <a class="item" href="/auth/facebook"><i class="facebook sign icon"></i> Facebook</a>
+        <a class="item" href="/auth/twitter"><i class="twitter sign icon"></i> Twitter</a>
+        <a class="item" href="/auth/github"><i class="github sign icon"></i> Github</a>
+        <a class="item" href="/auth/google"><i class="google plus sign icon"></i> Google</a>
+      </div>
+    </div>
+    <div class="eight wide column">
+      {% if message && message.length  %}
+          <div class="ui error message">
+            <a data-dismiss="alert" href="javascript:void(0)"><i class="close icon"></i></a>
+            <div class="header">
+              Message: {{ message }}
+            </div>
+          </div>
+      {% endif %}
+    </div>
+  </div>
+  {% block auth %}{% endblock %}
+{% endblock %}
+
+<!--
+extends ../layouts/default
+
+block content
+  .row
+    .offset1.span5
+      a(href="/auth/facebook")
+        img(src="/img/icons/facebook.png")
+      a(href="/auth/github")
+        img(src="/img/icons/github.png")
+      a(href="/auth/twitter")
+        img(src="/img/icons/twitter.png")
+      a(href="/auth/google")
+        img(src="/img/icons/google.png")
+    .span6
+      if message && message.length
+        .fade.in.alert.alert-error
+          button.close(type="button", data-dismiss="alert") &times;
+          strong #{message}
+      block auth
+-->
