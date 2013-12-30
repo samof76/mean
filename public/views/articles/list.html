@@ -1,14 +1,14 @@
 <div class="ui one column page grid" data-ng-controller="ArticlesController" data-ng-init="find()">
   <div class="column" data-ng-repeat="article in articles">
-    <div class="ui secondary pointing menu">
-      <a class="item" data="#!/articles/{{article._id}}">{{article.title}}</a>
-    </div>
-    <div class="right menu">
-      <div class="item">
-        {{article.created | date:'medium'}}
-      </div>
-      <div class="item">
-        {{article.user.name}}
+    <div class="ui green secondary pointing menu">
+      <a class="active item" data-ng-href="#!/articles/{{article._id}}"><strong>{{article.title}}</strong></a>
+      <div class="right menu">
+        <div class="item">
+          <small>{{article.created | date:'medium'}}</small>
+        </div>
+        <div class="item">
+          <small>{{article.user.name}}</small>
+        </div>
       </div>
     </div>
     <div class="ui segment">
