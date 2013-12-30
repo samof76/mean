@@ -1,3 +1,24 @@
+<div class="ui one column page grid" data-ng-controller="ArticlesController" data-ng-init="find()">
+  <div class="column" data-ng-repeat="article in articles">
+    <div class="ui secondary pointing menu">
+      <a class="item" data="#!/articles/{{article._id}}">{{article.title}}</a>
+    </div>
+    <div class="right menu">
+      <div class="item">
+        {{article.created | date:'medium'}}
+      </div>
+      <div class="item">
+        {{article.user.name}}
+      </div>
+    </div>
+    <div class="ui segment">
+      {{article.content}}
+    </div>
+  </div> 
+  <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>
+</div>
+
+<!--
 <section data-ng-controller="ArticlesController" data-ng-init="find()">
 	<ul class="articles unstyled">
 		<li data-ng-repeat="article in articles">
@@ -9,3 +30,4 @@
 	</ul>
 	<h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>
 </section>
+-->

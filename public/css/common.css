@@ -3,6 +3,17 @@
     margin-left:0
 }
 
+
+.main.container {
+  position: relative;
+  padding-bottom: 100px;
+}
+
+.container {
+  width: auto;
+  margin: 5%;
+}
+
 .content {
     margin-top:50px;
     width:100%

@@ -1,27 +1,29 @@
 {% extends '../layouts/default.html' %}
 
 {% block content %}
-  <div class="ui grid">
-    <div class="eight wide column">
-      <div class="ui fluid four item menu">
-        <a class="item" href="/auth/facebook"><i class="facebook sign icon"></i> Facebook</a>
-        <a class="item" href="/auth/twitter"><i class="twitter sign icon"></i> Twitter</a>
-        <a class="item" href="/auth/github"><i class="github sign icon"></i> Github</a>
-        <a class="item" href="/auth/google"><i class="google plus sign icon"></i> Google</a>
+  <div class="main container">
+    <div class="ui grid">
+      <div class="eight wide column">
+        <div class="ui fluid four item menu">
+          <a class="item" href="/auth/facebook"><i class="facebook sign icon"></i> Facebook</a>
+          <a class="item" href="/auth/twitter"><i class="twitter sign icon"></i> Twitter</a>
+          <a class="item" href="/auth/github"><i class="github sign icon"></i> Github</a>
+          <a class="item" href="/auth/google"><i class="google plus sign icon"></i> Google</a>
+        </div>
+      </div>
+      <div class="eight wide column">
+        {% if message && message.length  %}
+            <div class="ui error message">
+              <a data-dismiss="alert" href="javascript:void(0)"><i class="close icon"></i></a>
+              <div class="header">
+                Message: {{ message }}
+              </div>
+            </div>
+        {% endif %}
       </div>
     </div>
-    <div class="eight wide column">
-      {% if message && message.length  %}
-          <div class="ui error message">
-            <a data-dismiss="alert" href="javascript:void(0)"><i class="close icon"></i></a>
-            <div class="header">
-              Message: {{ message }}
-            </div>
-          </div>
-      {% endif %}
-    </div>
+    {% block auth %}{% endblock %}
   </div>
-  {% block auth %}{% endblock %}
 {% endblock %}
 
 <!--
