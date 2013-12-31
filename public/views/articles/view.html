@@ -1,14 +1,22 @@
-<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
-    <span>{{article.created | date:'medium'}}</span>/
-    <span>{{article.user.name}}</span>
-    <h2>{{article.title}}</h2>
-    <div data-ng-show="global.user._id == article.user._id">
-        <a class="btn" href="/#!/articles/{{article._id}}/edit">
-        	<i class="icon-edit"></i>
-        </a> 
-        <a class="btn" data-ng-click="remove();">
-            <i class="icon-trash"></i>
-        </a>
+<div class="ui one column page grid" data-ng-controller="ArticlesController" data-ng-init="findOne()">
+  <div class="column">
+    <div class="ui green secondary pointing menu">
+      <strong style="font-size: 2rem;">{{article.title}}</strong>
+      <div class="right menu">
+        <div class="item" >
+          <small>{{article.created | date:'medium'}}</small>
+        </div>
+        <div class="item">
+          <small>{{article.user.name}}</small>
+        </div>
+        <div class="item" data-ng-show="global.user._id ==  article.user._id">
+          <a href="/#!/articles/{{article._id}}/edit"><small><i class="edit sign icon"></i></small></a>
+        </div>
+      </div>
     </div>
-    <div>{{article.content}}</div>
-</section>
+    <div class="ui segment">
+      {{article.content}}
+    </div>
+  </div> 
+</div>
+
